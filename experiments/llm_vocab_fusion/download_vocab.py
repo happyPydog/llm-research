@@ -57,7 +57,7 @@ def save_vocab(model_name: str, save_path: Path) -> None:
         vocab = tokenizer.get_vocab()
         save_path.write_text(json.dumps(vocab, ensure_ascii=False, indent=4))
         click.echo(f"Successfully saved vocab for '{model_name}' to {save_path}")
-    except Exception as e:
+    except OSError as e:
         click.echo(f"Failed to save vocab for '{model_name}': {e}")
 
 
